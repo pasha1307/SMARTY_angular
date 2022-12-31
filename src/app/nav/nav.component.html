@@ -1,0 +1,33 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <!--    <mat-toolbar class="menu-tool" style="background-color: #673ab7; background-image: url('assets/cms_logo.png'); background-size: '210px auto'; background-repeat: 'no-repeat'"></mat-toolbar>-->
+    <mat-toolbar class="menu-tool"
+                 style="background-color: #673ab7; background-image: url('assets/cms_logo.png'); background-size: '200px 64px'; background-repeat: 'no-repeat'"></mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="contacts" routerLinkActive ariaCurrentWhenActive="page">SMARTY Integration</a>
+
+      <a mat-list-item routerLink="dash" routerLinkActive ariaCurrentWhenActive="page">My Work</a>
+      <!--      <a mat-list-item routerLink="appeal" routerLinkActive ariaCurrentWhenActive="page">Appeal</a>-->
+      <!--      <a mat-list-item routerLink="wb" routerLinkActive ariaCurrentWhenActive="page">Workbasket</a>-->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content-area">
+    <mat-toolbar color="primary" class="mat-elevation-z6">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <!--        *ngIf="isHandset$ | async"-->
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Case Manager Web Application</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
