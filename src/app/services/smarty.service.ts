@@ -22,12 +22,10 @@ export class SmartyService {
     return this.authToken;
   }
   getAddress(val: any) {
-    const {street_line, secondary, city, state, zipcode} = val;
+    const {street_line, city, state} = val;
     const sl = street_line.replace(/\s/g, '+');
-    const sc = secondary.replace(/\s/g, '+');
     const cty = city.replace(/\s/g, '+');
     const st = state.replace(/\s/g, '+');
-    // const zp = zipcode.replace(/\s/g, '+') || null;
     return this.http.get(`${this.lookupUrl}?street=${sl}+${cty}+${st}${this.id}${this.tkn}`);
   }
 
@@ -37,7 +35,6 @@ export class SmartyService {
   }
 
   autoSecond(val: any) {
-    const ws = "";
     const {street_line, secondary, city, state, zipcode, entries} = val;
     const sl = street_line.replace(/\s/g, '+');
     const sc = secondary.replace(/\s/g, '+');
@@ -45,7 +42,6 @@ export class SmartyService {
     const st = state.replace(/\s/g, '+');
     const zp = zipcode.replace(/\s/g, '+');
 
-    const qq1 = '?search=' + street_line + ws + secondary + " " + city + ", " + state + " " + zipcode + '&selected=' + street_line + ws + secondary + " " + city + ", " + state + " " + zipcode;
     return this.http.get<any>(this.aptUrl + '?search=' + sl + '&selected=' + sl + '+' + sc + '+' + '(' + entries + ')' + '+' + cty + '+' + st + '+' + zp + this.id + this.tkn)
   }
 
