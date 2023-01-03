@@ -1,0 +1,107 @@
+<div class="grid-container">
+  <h1 class="mat-h1">SMARTY Integration</h1>
+  <mat-grid-list [cols]="4" rowHeight="250px">
+    <ng-container id="user-profile">
+      <mat-grid-tile [colspan]="2" [rowspan]="3">
+        <mat-card class="dashboard-card mat-elevation-z0 m-3 ">
+          <mat-card-header>
+            <mat-card-title>
+              Appellants
+            </mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content class="overflow-auto mx-5">
+            <mat-list>
+              <div class="flex justify-between mb-0">
+                <h3 matSubheader class="font-semibold">John Doe's Addresses</h3>
+                <button mat-mini-fab matTooltip="Add address" color="default" aria-label="Add address"
+                        (click)="onCreate('a1')">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+              <mat-list-item *ngFor="let folder of addresses1; let i = index" (click)="onUpdate(folder, i)"
+                             class="hover:cursor-pointer hover:bg-blue-50" matTooltip="Click to update">
+                <h4 matListItemTitle>
+                  <span class="font-mono">[{{folder.type}}]</span></h4>
+                <p matListItemLine>
+                  <span class="italic font-bold"> {{folder.street_line}}</span>
+                  <span *ngIf="folder?.entries"> ({{folder.entries}}) </span>
+                  <span class="italic font-medium"> {{folder.city}},</span>
+                  <span class="italic font-medium">  {{folder.state}}</span>
+                  <span class="italic font-medium"> {{folder.zipcode}}</span>,
+                  <span class="italic font-medium"> USA</span>
+                </p>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+            <mat-list>
+              <div class="flex justify-between">
+                <h3 matSubheader class="font-semibold"> Ann Smith Addresses</h3>
+                <button mat-mini-fab matTooltip="Add address" color="default" aria-label="Add address"
+                        (click)="onCreate('a2')">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+
+              <mat-list-item *ngFor="let folder of addresses2; let i = index;" (click)="onUpdate(folder, i)"
+                             class="hover:cursor-pointer hover:bg-blue-50" matTooltip="Click to update">
+                <h4 matListItemTitle><span class="font-mono">[{{folder.type}}]</span></h4>
+                <p matListItemLine>
+                  <span class="italic font-bold"> {{folder.street_line}}</span>
+                  <span *ngIf="folder.entries"> ({{folder.entries}}) </span>
+                  <span class="italic font-medium"> {{folder.city}},</span>
+                  <span class="italic font-medium">  {{folder.state}}</span>
+                  <span class="italic font-medium"> {{folder.zipcode}}</span>,
+                  <span class="italic font-medium"> USA</span>
+                </p>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <!--            <button mat-raised-button>Add Address</button>-->
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </ng-container>
+
+    <ng-container id="ic-task">
+      <mat-grid-tile [colspan]="2" [rowspan]="2">
+        <mat-card class="dashboard-card mat-elevation-z6 m-3">
+          <mat-card-header>
+            <mat-card-title>
+              Representatives
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Minimize</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              content will be here
+              <!--              <app-d-table></app-d-table>-->
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+
+    </ng-container>
+
+  </mat-grid-list>
+</div>
+<!--<address>-->
+<!--  You can contact author at-->
+<!--  <a href="http://www.somedomain.com/contact"> www.somedomain.com</a>.<br/>-->
+<!--  If you see any bugs, please-->
+<!--  <a href="mailto:webmaster@somedomain.com"> contact webmaster</a>.<br/>-->
+<!--  You may also want to visit us:<br/>-->
+<!--  Mozilla Foundation<br/>-->
+<!--  331 E Evelyn Ave<br/>-->
+<!--  Mountain View, CA 94041<br/>-->
+<!--  USA-->
+<!--</address>-->

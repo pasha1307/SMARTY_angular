@@ -1,0 +1,32 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.content-area {
+  overflow-y: hidden;
+  //background-color: #848484;
+  background-color: #E1F3F8;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.side-logo {
+  width: 180px;
+}
+
+.menu-tool {
+  background-color: #673ab7;
+  color: white;
+}

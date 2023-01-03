@@ -76,6 +76,18 @@ export class ModalUpdateComponent implements OnInit {
   }
 
   onClose() {
+    const d = this.myData;
+    console.log("Cancel:", d)
+    this.form.setValue({
+      type: d.type,
+      street_line: d.street_line,
+      is_second: 'true',
+      secondary: d.secondary,
+      city: d.city,
+      county: 'nd',
+      state: d.state,
+      zipcode: d.zipcode
+    });
     this.dialogRef.close();
   }
 

@@ -1,8 +1,8 @@
 <div class="grid-container">
   <h1 class="mat-h1">SMARTY Integration</h1>
-  <mat-grid-list [cols]="4" rowHeight="250px">
+  <mat-grid-list [cols]="5" rowHeight="250px">
     <ng-container id="user-profile">
-      <mat-grid-tile [colspan]="2" [rowspan]="3">
+      <mat-grid-tile [colspan]="3" [rowspan]="3">
         <mat-card class="dashboard-card mat-elevation-z0 m-3 ">
           <mat-card-header>
             <mat-card-title>
@@ -11,49 +11,51 @@
           </mat-card-header>
 
           <mat-card-content class="overflow-auto mx-5">
-            <mat-list>
-              <div class="flex justify-between mb-0">
-                <h3 matSubheader class="font-semibold">John Doe's Addresses</h3>
-                <button mat-mini-fab matTooltip="Add address" color="default" aria-label="Add address"
-                        (click)="onCreate('a1')">
-                  <mat-icon>add</mat-icon>
-                </button>
-              </div>
-              <mat-list-item *ngFor="let folder of addresses1; let i = index" (click)="onUpdate(folder, i)"
-                             class="hover:cursor-pointer hover:bg-blue-50" matTooltip="Click to update">
-                <h4 matListItemTitle>
-                  <span class="font-mono">[{{folder.type}}]</span></h4>
-                <p matListItemLine>
-                  <span class="italic font-bold"> {{folder.street_line}}</span>
-                  <span *ngIf="folder?.entries"> ({{folder.entries}}) </span>
-                  <span class="italic font-medium"> {{folder.city}},</span>
-                  <span class="italic font-medium">  {{folder.state}}</span>
-                  <span class="italic font-medium"> {{folder.zipcode}}</span>,
-                  <span class="italic font-medium"> USA</span>
-                </p>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-            </mat-list>
-            <mat-list>
-              <div class="flex justify-between">
-                <h3 matSubheader class="font-semibold"> Ann Smith Addresses</h3>
-                <button mat-mini-fab matTooltip="Add address" color="default" aria-label="Add address"
-                        (click)="onCreate('a2')">
-                  <mat-icon>add</mat-icon>
-                </button>
-              </div>
+            <div class="flex justify-between mb-0">
+              <h3 matSubheader class="font-semibold">John Doe's Addresses</h3>
+              <button mat-mini-fab matTooltip="Add address" color="default" aria-label="Add address"
+                      (click)="onCreate('a1')">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <mat-list class="flex">
 
-              <mat-list-item *ngFor="let folder of addresses2; let i = index;" (click)="onUpdate(folder, i)"
-                             class="hover:cursor-pointer hover:bg-blue-50" matTooltip="Click to update">
-                <h4 matListItemTitle><span class="font-mono">[{{folder.type}}]</span></h4>
-                <p matListItemLine>
-                  <span class="italic font-bold"> {{folder.street_line}}</span>
-                  <span *ngIf="folder.entries"> ({{folder.entries}}) </span>
-                  <span class="italic font-medium"> {{folder.city}},</span>
-                  <span class="italic font-medium">  {{folder.state}}</span>
-                  <span class="italic font-medium"> {{folder.zipcode}}</span>,
-                  <span class="italic font-medium"> USA</span>
-                </p>
+              <mat-list-item *ngFor="let f of addresses1; let i = index" (click)="onUpdate(f, i)"
+                             class="hover:cursor-pointer hover:bg-blue-50 w-60" matTooltip="Click to update">
+                <h4 matListItemTitle>
+                  <span class="font-mono">[{{f?.type}}]</span></h4>
+
+                <span class="italic font-bold" matListItemLine> {{f?.street_line}}
+                  <span *ngIf="f?.entries"> ({{f?.entries}}) </span></span>
+                <span class="italic font-medium" matListItemLine> {{f?.city}},</span>
+                <span class="italic font-medium" matListItemLine>  {{f?.state}}  <span> {{f?.zipcode}}</span>    </span>
+                <span class="italic font-medium" matListItemLine> USA</span>
+
+              </mat-list-item>
+
+            </mat-list>
+            <mat-divider></mat-divider>
+            <div class="flex justify-between mb-0 mt-3">
+              <h3 matSubheader class="font-semibold"> Ann Smith Addresses</h3>
+              <button mat-mini-fab matTooltip="Add address" color="default" aria-label="Add address"
+                      (click)="onCreate('a2')">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+
+            <mat-list class="flex">
+
+              <mat-list-item *ngFor="let folder of addresses2; let i = index" (click)="onUpdateTwo(folder, i)"
+                             class="hover:cursor-pointer hover:bg-blue-50 w-60 pt-0" matTooltip="Click to update">
+                <h4 matListItemTitle>
+                  <span class="font-mono">[{{folder?.type}}]</span></h4>
+
+                <span class="italic font-bold" matListItemLine> {{folder?.street_line}}
+                  <span *ngIf="folder?.entries"> ({{folder?.entries}}) </span></span>
+                <span class="italic font-medium" matListItemLine> {{folder?.city}},</span>
+                <span class="italic font-medium" matListItemLine>  {{folder?.state}}  <span> {{folder?.zipcode}}</span> </span>
+                <span class="italic font-medium" matListItemLine> USA</span>
+
               </mat-list-item>
               <mat-divider></mat-divider>
             </mat-list>
@@ -67,11 +69,10 @@
     </ng-container>
 
     <ng-container id="ic-task">
-      <mat-grid-tile [colspan]="2" [rowspan]="2">
+      <mat-grid-tile [colspan]="2" [rowspan]="3">
         <mat-card class="dashboard-card mat-elevation-z6 m-3">
           <mat-card-header>
             <mat-card-title>
-              Representatives
               <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
                 <mat-icon>more_vert</mat-icon>
               </button>
@@ -81,9 +82,43 @@
               </mat-menu>
             </mat-card-title>
           </mat-card-header>
-          <mat-card-content class="dashboard-card-content">
-            <div>
-              content will be here
+          <mat-card-content class="dashboard-card-content px-10">
+            <div style="text-align: left">
+              <h2>Two scenarios to use Smarty Addresses:</h2>
+              <h3>
+                1. UPDATE. If the address exists and needs change or verification with the common DB (Smarty)
+              </h3>
+              <h3>
+                2. CREATE. If a new address is added that comes from the Smarty DB (complies with Smarty).
+              </h3>
+              <p class="font-semibold">Create (Add New) Address:</p>
+              <ul>
+                <li>Step 1. Click Add New Button. The modal opens</li>
+                <li>Step 2. Start typing with the building number first. (there is a delay to start searching after 3-4
+                  characters are typed ).
+                </li>
+                <li>Step 3. Chooses the address and fields are populated with data (no apartments )</li>
+                <li>Step 4. If there are more than 0 numbers in (2), then click the second time to select the
+                  apartment/unit
+                  number.
+                </li>
+                <li>
+                  Step 5. Click Submit. The Modal closes and the address is added to the appeallant.
+                </li>
+              </ul>
+              <p class="font-semibold">Update (Verify) Address:</p>
+              <ul>
+                <li>Step 1. Click the Address you want to update or verify. The modal opens</li>
+                <li>Step 2. Check in the right window whether the address complies with SMARTY.
+                </li>
+                <li>Step 3. If Yes, then click Submit</li>
+                <li>Step 4. If not, then type info in the fields except zip code and click Verify.
+                </li>
+                <li>
+                  Step 5. Click Submit. The Address is updated in the Appellant's list.
+                </li>
+              </ul>
+
               <!--              <app-d-table></app-d-table>-->
             </div>
           </mat-card-content>
