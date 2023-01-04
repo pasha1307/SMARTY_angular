@@ -73,7 +73,7 @@ export class SmartyService {
     const zp = zipcode.replace(/\s/g, '+');
 
     const qq1 = '?search=' + street_line + ws + secondary + " " + city + ", " + state + " " + zipcode + '&selected=' + street_line + ws + secondary + " " + city + ", " + state + " " + zipcode;
-    return this.http.get<any>(this.aptUrl + sl + '&selected=' + sl + '+' + sc + '+' + '(' + entries + ')' + '+' + cty + '+' + st + '+' + zp + this.authId + this.authToken)
+    return this.http.get<any>(this.aptUrl + sl + '&selected=' + sl + '+' + sc + '+' + '(' + entries + ')' + '+' + cty + '+' + st + '+' + zp)
   }
   // autoSecond(val: any) {
   //   const ws = "";
