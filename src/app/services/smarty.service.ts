@@ -9,20 +9,20 @@ export class SmartyService {
   // for smarty-angular-l2uh-ppk.vercel.app
   authKey = '147509187321264857';
   depKey = '147509187582985634';
-  vercatelKey='147509183892527932';
+  vtlKey='147509183892527932';
   localHostApi='147509187689926841';
-  // depKey = '147509187689926841';
+
   authId = `&auth-id=6b6533ca-6c82-4050-7351-a8c9608d42e7`;
   authToken = '&auth-token=WHaV2mmPXCxtYedAtRr7';
-  lookupUrl = 'https://us-street.api.smartystreets.com/street-address?key=' + this.depKey;
-  autoUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.depKey + '&search=1042+W+Center+St+Apt+A&selected=1042+W+Center+St+Apt+A+(24)+Orem+UT+84057';
+  lookupUrl = 'https://us-street.api.smartystreets.com/street-address?key=' + this.vtlKey;
+  autoUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=1042+W+Center+St+Apt+A&selected=1042+W+Center+St+Apt+A+(24)+Orem+UT+84057';
   aptUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup';
   autoLookupUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?';
   autoLookupQuery = 'search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il';
   referer = '-H referer: http://localhost:4200';
   // refUrl = `${this.autoLookupUrl}${this.autoLookupQuery}&key=${this.depKey}`
 
-  refUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vercatelKey + '&search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il\' -H \'referer: http://localhost:4200';
+  refUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il\' -H \'referer: http://localhost:4200';
 
   constructor(public http: HttpClient) {
   }
@@ -51,7 +51,7 @@ export class SmartyService {
   }
 
   autoStreet(term: string): any {
-    return this.http.get<any>(`${this.autoUrl}${term}${this.depKey}&source=all`)
+    return this.http.get<any>(`${this.autoUrl}${term}${this.vtlKey}&source=all`)
       .pipe(map(data => data.suggestions))
   }
 
@@ -69,7 +69,7 @@ export class SmartyService {
 
     const qq1 = '?search=' + street_line + ws + secondary + " " + city + ", " + state + " " + zipcode + '&selected=' + street_line + ws + secondary + " " + city + ", " + state + " " + zipcode;
     // return this.http.get<any>(this.aptUrl + '?search=' + sl + '&selected=' + sl + '+' + sc + '+' + '(' + entries + ')' + '+' + cty + '+' + st + '+' + zp + this.authId + this.authToken)
-    return this.http.get<any>(this.aptUrl + '?search=' + '&key=' + this.depKey + sl + '&selected=' + sl + '+' + sc + '+' + '(' + entries + ')' + '+' + cty + '+' + st + '+' + zp )
+    return this.http.get<any>(this.aptUrl + '?search=' + '&key=' + this.vtlKey + sl + '&selected=' + sl + '+' + sc + '+' + '(' + entries + ')' + '+' + cty + '+' + st + '+' + zp )
   }
 
 }
