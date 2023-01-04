@@ -45,7 +45,7 @@ export class DashComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.smService.lookup().subscribe((r: any) => console.log('LOOKUP DATA?', r));
+    this.smService.lookup().subscribe((r: any) => console.log('LOOKUP DATA?', r));
     // this.smService.autoAdd('Madison').subscribe((r: any) => console.log('DATA?', r));
   }
 
