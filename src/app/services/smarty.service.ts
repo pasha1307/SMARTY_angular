@@ -22,8 +22,8 @@ export class SmartyService {
   referer = '-H referer: http://localhost:4200';
   // refUrl = `${this.autoLookupUrl}${this.autoLookupQuery}&key=${this.depKey}`
 
-  // refUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il\' -H \'referer: http://localhost:4200';
-  refUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il';
+  refUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il\' -H \'referer: http://localhost:4200';
+  // refUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il';
 
   constructor(public http: HttpClient) {
   }
@@ -52,7 +52,8 @@ export class SmartyService {
   }
 
   autoStreet(term: string): any {
-    return this.http.get<any>(`${this.autoUrl}${term}${this.vtlKey}&source=all`)
+    // return this.http.get<any>(`${this.autoUrl}${term}${this.vtlKey}&source=all`)
+    return this.http.get<any>(`${this.autoUrl}${term}&source=all`)
       .pipe(map(data => data.suggestions))
   }
 
