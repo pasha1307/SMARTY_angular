@@ -15,7 +15,7 @@ export class SmartyService {
   authId = `&auth-id=6b6533ca-6c82-4050-7351-a8c9608d42e7`;
   authToken = '&auth-token=WHaV2mmPXCxtYedAtRr7';
   lookupUrl = 'https://us-street.api.smartystreets.com/street-address?key=' + this.vtlKey;
-  autoUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=1042+W+Center+St+Apt+A&selected=1042+W+Center+St+Apt+A+(24)+Orem+UT+84057';
+  autoUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey;
   aptUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup';
   autoLookupUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?';
   autoLookupQuery = 'search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il';
