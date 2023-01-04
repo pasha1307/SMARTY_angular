@@ -6,9 +6,10 @@ import {map} from "rxjs/operators";
   providedIn: 'root'
 })
 export class SmartyService {
+  // for smarty-angular-l2uh-ppk.vercel.app
   authKey = '147509187321264857';
   depKey = '147509187582985634';
-  vercatelKey='147509184175942942';
+  vercatelKey='147509183892527932';
   localHostApi='147509187689926841';
   // depKey = '147509187689926841';
   authId = `&auth-id=6b6533ca-6c82-4050-7351-a8c9608d42e7`;
