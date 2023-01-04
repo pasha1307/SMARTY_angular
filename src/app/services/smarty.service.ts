@@ -18,7 +18,7 @@ export class SmartyService {
   // autoUrlORIGINAL = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?search=';
   // autoUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?search=';
   autoUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=';
-  aptUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup' + this.vtlKey + '&search=';
+  aptUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=';
   autoLookupUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?';
   autoLookupQuery = 'search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il';
   referer = '-H referer: http://localhost:4200';
