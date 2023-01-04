@@ -29,6 +29,9 @@ export class SmartyService {
 
   constructor(public http: HttpClient) {
   }
+  ontest() {
+    console.log('Later');
+  }
 
   getAddress(val: any) {
     const {street_line, secondary, city, state, zipcode} = val;
