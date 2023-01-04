@@ -22,7 +22,8 @@ export class SmartyService {
   referer = '-H referer: http://localhost:4200';
   // refUrl = `${this.autoLookupUrl}${this.autoLookupQuery}&key=${this.depKey}`
 
-  refUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il\' -H \'referer: http://localhost:4200';
+  // refUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il\' -H \'referer: http://localhost:4200';
+  refUrl = 'https://us-autocomplete-pro.api.smartystreets.com/lookup?key=' + this.vtlKey + '&search=123+mai&include_only_cities=chicago%2Cil&include_only_states=mi&prefer_states=il';
 
   constructor(public http: HttpClient) {
   }
@@ -35,7 +36,7 @@ export class SmartyService {
     const st = state.replace(/\s/g, '+');
     // const zp = zipcode.replace(/\s/g, '+') || null;
     // return this.http.get(`${this.lookupUrl}?street=${sl}+${cty}+${st}${this.authId}${this.authToken}`);
-    return this.http.get(`${this.lookupUrl}?street=${sl}+${cty}+${st}`);
+    return this.http.get(`${this.lookupUrl}&street=${sl}+${cty}+${st}`);
   }
 
   lookup() {
