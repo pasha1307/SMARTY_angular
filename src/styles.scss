@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;600;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* You can add global styles to this file, and also import other style files */
-//@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-html, body { height: 100%; }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+@layer base {
+  html, body { height: 100%; }
+  body { margin: 0; font-family: 'Work Sans', sans-serif; }
+  //body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+}
+
+@layer components {
+  .my-item {
+    @apply relative flex h-full items-center cursor-pointer items-center  p-4 font-semibold text-pink-200 hover:text-zinc-200 hover:bg-white/10
+  }
 }

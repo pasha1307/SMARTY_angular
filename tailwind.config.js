@@ -1,18 +1,10 @@
-require('dotenv').config();
 /** @type {import('tailwindcss').Config} */
-const enablePurge = process.env.ENABLE_PURGE || false;
 module.exports = {
-  important: true,
-  content: [],
-  purge: {
-    enabled: enablePurge,
-    content: [
-      './src/**/*.html',
-      './src/**/*.scss'
-    ]
-  },
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("./src/plugins/openVariant")],
 }
